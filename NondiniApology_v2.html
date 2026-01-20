@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nondini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }body {
+  height: 100vh;
+  background: url('gramer-bari.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fffaf0;
+}
+
+.container {
+  text-align: center;
+  padding: 25px;
+  max-width: 700px;
+  background: rgba(255, 182, 71, 0.35); /* warm overlay */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.start {
+  font-size: 2.5rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  font-family: 'Sacramento', cursive;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.message {
+  display: none;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  white-space: pre-line;
+  font-family: 'Sacramento', cursive;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.petal {
+  position: absolute;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="start" id="startBtn">Nondini<br/><small>(click gently)</small></div>
+    <div class="message" id="message"></div>
+  </div>  <audio id="music" loop>
+    <source src="arnob-she-je-boshe-ache.mp3" type="audio/mpeg">
+  </audio>  <script>
+    const startBtn = document.getElementById('startBtn');
+    const messageDiv = document.getElementById('message');
+    const music = document.getElementById('music');
+
+    const text = `Nondini,
+
+Lately I haven’t been the version of me you deserve.
+I know I’ve been dry, and sometimes careless.
+
+But you matter to me — more than I’ve shown.
+I’m sorry for the moments I made you feel otherwise.
+
+I can’t promise I’ll be perfect,
+but I promise I’ll try harder,
+be more patient,
+and treat you the way you deserve.
+
+And btw…
+you’ll always be my best roamer.`;
+
+    startBtn.addEventListener('click', () => {
+      startBtn.style.display = 'none';
+      messageDiv.style.display = 'block';
+      music.volume = 0.25;
+      music.play();
+      typeText();
+      createPetals();
+    });
+
+    let index = 0;
+    function typeText() {
+      if (index < text.length) {
+        messageDiv.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 50);
+      }
+    }
+
+    function createPetals() {
+      for (let i = 0; i < 25; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+        petal.style.opacity = Math.random();
+        document.body.appendChild(petal);
+      }
+    }
+  </script></body>
+</html><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nondini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }body {
+  height: 100vh;
+  background: url('gramer-bari.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fffaf0;
+}
+
+.container {
+  text-align: center;
+  padding: 25px;
+  max-width: 700px;
+  background: rgba(255, 182, 71, 0.35); /* warm overlay */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.start {
+  font-size: 2.5rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  font-family: 'Sacramento', cursive;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.message {
+  display: none;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  white-space: pre-line;
+  font-family: 'Sacramento', cursive;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.petal {
+  position: absolute;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="start" id="startBtn">Nondini<br/><small>(click gently)</small></div>
+    <div class="message" id="message"></div>
+  </div>  <audio id="music" loop>
+    <source src="arnob-she-je-boshe-ache.mp3" type="audio/mpeg">
+  </audio>  <script>
+    const startBtn = document.getElementById('startBtn');
+    const messageDiv = document.getElementById('message');
+    const music = document.getElementById('music');
+
+    const text = `Nondini,
+
+Lately I haven’t been the version of me you deserve.
+I know I’ve been dry, and sometimes careless.
+
+But you matter to me — more than I’ve shown.
+I’m sorry for the moments I made you feel otherwise.
+
+I can’t promise I’ll be perfect,
+but I promise I’ll try harder,
+be more patient,
+and treat you the way you deserve.
+
+And btw…
+you’ll always be my best roamer.`;
+
+    startBtn.addEventListener('click', () => {
+      startBtn.style.display = 'none';
+      messageDiv.style.display = 'block';
+      music.volume = 0.25;
+      music.play();
+      typeText();
+      createPetals();
+    });
+
+    let index = 0;
+    function typeText() {
+      if (index < text.length) {
+        messageDiv.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeText, 50);
+      }
+    }
+
+    function createPetals() {
+      for (let i = 0; i < 25; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+        petal.style.opacity = Math.random();
+        document.body.appendChild(petal);
+      }
+    }
+  </script></body>
+</html>
